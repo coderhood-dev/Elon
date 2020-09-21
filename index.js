@@ -1,17 +1,17 @@
-const Discord = require("discord.js");
-const config = require("./config.json");
+import Discord from "discord.js";
+import dotenv from "dotenv";
+
+// Importing this allows you to access the environment variables of the running node process
+dotenv.config();
 
 const client = new Discord.Client();
 
 client.on("message", function (message) {
   if (message.author.bot) return;
 
-  // console.log(message.content);
-  if (message.content.startsWith("/elon workforce")) {
-    message.reply(
-      `there are ${message.guild.memberCount} potential workers here`
-    );
+  if (message.content.startsWith("/elon server")) {
+    message.reply(`we are ${message.guild.memberCount} devs!`);
   }
 });
 
-client.login(config.BOT_TOKEN);
+client.login();
